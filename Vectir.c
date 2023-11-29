@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+//prototype vector for int
 typedef struct{
 	int* arr;
 	size_t size;
 	size_t cap;
 }Vint;
 
-
+//create empty vector
 Vint construct_0(){
 	Vint ob;
 	ob.size = 0;
@@ -17,7 +18,7 @@ Vint construct_0(){
 	return ob;
 }
 
-
+//create an empty vector with this size
 Vint construct_s(size_t size){
 	Vint ob;
 	ob.size = size;
@@ -26,6 +27,7 @@ Vint construct_s(size_t size){
 	return ob;
 }
 
+//create an vector with a given size and assign a given value to
 Vint construct_v(size_t size, int val){
 	Vint ob;
 	ob.size = size;
@@ -37,12 +39,14 @@ Vint construct_v(size_t size, int val){
 	return ob;
 }
 
+//must be removed after using the vector
 void Deletion(Vint* ob){
 	ob->cap = 0;
 	ob->size = 0;
 	free(ob -> arr);
 }
 
+//resize the vector to the given new size
 void resize(Vint* ob, size_t new_size){
 	if(ob->size > new_size){
 		ob->size = new_size;
@@ -71,7 +75,7 @@ void resize(Vint* ob, size_t new_size){
 	}
 }
 
-
+//change the capacity (limit vector) to the given new capacity
 void recap(Vint* ob){
 	if(ob->cap == 0){
 		ob->cap = 4;
@@ -88,6 +92,7 @@ void recap(Vint* ob){
 	}
 }
 
+//remove from the ending
 void push_back(Vint* ob, int val){
 	if(ob->size == ob->cap){
 		recap(ob);
@@ -96,6 +101,7 @@ void push_back(Vint* ob, int val){
 	ob->size += 1;
 }
 
+//add a new value to the point index
 void Insert(Vint* ob, size_t index, int value){
 	if(index >= ob->size){
 		printf("\nError out of range\n");
@@ -113,10 +119,12 @@ void Insert(Vint* ob, size_t index, int value){
 	ob->size += 1;
 }
 
+//determine whether it is empty or not
 bool empty(Vint* ob){
 	return ob->size == 0;
 }
 
+//return the value at the given index
 int Access(Vint* ob,  size_t index){
 	if(index <= ob->size){
 		return ob->arr[index];
@@ -125,7 +133,7 @@ int Access(Vint* ob,  size_t index){
 		return -1;
 	}
 }
-
+//sort from small
 void Sort(Vint* ob){
  	if(empty(ob)){
 		 printf("\nObject is empty\n");
@@ -142,7 +150,8 @@ void Sort(Vint* ob){
 	} 
 }
 
-int Search(Vint* ob, int key){
+//search
+int seek_Binary(Vint* ob, int key){
 	int j = ob->size;
 	int i = 0;
 	while(i <= j){
@@ -154,7 +163,27 @@ int Search(Vint* ob, int key){
 		}
 		i = ++mid;
 	}
-	printf(\n"The number is missing\n");
+	printf(\n"The number is missing\n or this object is not sorted \n");
+	return -1;
+}
+
+//search if not a sort
+int sotr_start(Vint* ob, int key){
+	for(int i = 0; i < ob->size; ++i){
+		if(ob->arr[i] == key){
+			return i;
+		}
+	}
+	return -1;
+}
+
+//search if not a end
+int sotr_ending(Vint* ob, int key){
+	for(int i = ob->size; i >= 0; --i){
+		if(ob->arr[i] == key){
+			return i;
+		}
+	}
 	return -1;
 }
 
