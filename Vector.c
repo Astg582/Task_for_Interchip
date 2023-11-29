@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "Vector.h"
+
 
 //prototype vector for int
 typedef struct{
@@ -187,24 +189,6 @@ int sotr_ending(Vint* ob, int key){
 	return -1;
 }
 
-int main(){
-	Vint ob = construct_v(10, 3);
-	for(int i = 0; i < ob.size; ++i){
-		printf("\n %d", ob.arr[i]);
-	}
-	
-	Insert(&ob, 3, 2);
-	Insert(&ob, 2, 23);
-	Insert(&ob, 5, 18);
-	Insert(&ob, 8, -1);
-    Insert(&ob, 4, 7);		
-	push_back(&ob, 14);
-	Sort(&ob);
-	printf("the new ob\n");
-	
-	for(int i = 0; i < ob.cap; ++i){
-		printf("\n %d", ob.arr[i]);
-	}
 	
 
 
