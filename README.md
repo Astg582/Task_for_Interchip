@@ -1,6 +1,72 @@
 # Task_for_Interchip
 C   ----> vectr
 
+Step 1: Downloa
+Ensure you have both Vector.h and Vector.c fi
+
+Step 2: Include Vector.h in Your Sou
+In the source file where you want to use the `Vector.h` header at the be
+
+#include "Vector.h"
+
+Step 3: Comp
+When compiling your program, include bot `Vector.c` and your source file in the compilation command. For example:
+
+gcc YourSourceFile.c Vector.c -o Your Executable
+
+Step 4: Use Vector Functions in Your C
+Now you can use the functions declared in `Vector.h` in your source file. Here's an example:
+
+#include <stdio.h>
+#include "Vector.h"
+
+int main() {
+    // Create a vector with size 5 and initialize all elements to 0
+    Vint myVector = construct_v(5, 0);
+
+    // Insert values
+    Insert(&myVector, 2, 42);
+    push_back(&myVector, 10);
+
+    // Print the vector before sorting
+    printf("Before sorting:\n");
+    for (size_t i = 0; i < myVector.size; ++i) {
+        printf("%d ", myVector.arr[i]);
+    }
+
+    // Sort the vector
+    Sort(&myVector);
+
+    // Print the sorted vector
+    printf("\nAfter sorting:\n");
+    for (size_t i = 0; i < myVector.size; ++i) {
+        printf("%d ", myVector.arr[i]);
+    }
+
+    // Free the memory used by the vector
+    Deletion(&myVector);
+
+    return 0;
+}
+
+Step 5: Compile and Run Your Program
+Compile your program again, and then run the executable:
+
+./YourExecutable
+
+This should execute your program, and you should see the output based on the functions you've used from Vector.h and `Vector.c`. Adjust the example code according to your specific requirements.
+
+
+Note:
+Make sure to include "Vector.h" in any source file where you want to use the vector functions.
+Always compile both your source file and `Vector.c` together to ensure that the functions are properly linked.
+
+
+Following these steps should help you integrate the vector functionality into your C program
+
+
+
+
 Vector Usage Guide
 
 1 Initialization:
